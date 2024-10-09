@@ -25,20 +25,21 @@ const inputQuery = form.elements.query;
 //Submit listener
 form.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  processSubmit(inputQuery.value);
-});
-
-//Processing submit
-function processSubmit(query) {
-  const gallery = document.querySelector('.gallery');
-  gallery.innerHTML = "";
+  const query = inputQuery.value.trim();
   if (query.length < 3) {
     iziToast.error({
       message: `❌ Input at last three symbols!`
     });
     return
   }
+  processSubmit(query);
+});
 
+//Processing submit
+function processSubmit(query) {
+  const gallery = document.querySelector('.gallery');
+  gallery.innerHTML = "";
+  
   form.reset();
   showLoader()
 

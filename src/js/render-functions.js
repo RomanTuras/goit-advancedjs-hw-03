@@ -1,5 +1,12 @@
 import SimpleLightbox from "simplelightbox";
 
+// Init a new instence of the SimpleLightbox
+const lightbox = new SimpleLightbox('.gallery .gallery-item a', {
+  captionDelay: 250,
+  captionsData: 'alt',
+  showCounter: false,
+});
+
 // Rendering the gallery with results
 export default function renderGallery(images) {
   const gallery = document.querySelector('.gallery');
@@ -38,12 +45,6 @@ export default function renderGallery(images) {
   });
   
   gallery.innerHTML = markup;
-  
-  let lightbox = new SimpleLightbox('.gallery .gallery-item a', {
-    captionDelay: 250,
-    captionsData: 'alt',
-    showCounter: false,
-  });
-  
   lightbox.refresh();
+
 }
